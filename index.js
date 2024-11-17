@@ -1,6 +1,12 @@
 const yellowText = `font-weight: bold; color: yellow;`;
 const blueText = `font-weight: bold; color: blue;`;
 function answer(question, variableName) {
+  if (question === undefined) {
+    question = ``;
+  }
+  if (variableName === undefined) {
+    variableName = ``;
+  }
   console.log(question + `%c${variableName}`, yellowText);
 }
 
@@ -61,4 +67,26 @@ const fourthIngredient = ingredientsListPaste.children[3];
 answer(question7, fourthIngredient.textContent); 
 
 // 8. 
+const instructions = [
+  "Smula sönder 10 stycken digistivetex och blanda sen med smöret. Bred ut det i botten av en en rund form med lösbara kanter. Det ska bli som en tjockt täcke på botten av formen.",
+  "Separera ägggulor och äggvitor. Äggvitorna lägger du i en stor bunke, äggulorna i en liten bunke.",
+  "Vispa äggvitorna hårt med en elvisp. De är tillräckligt vispade när du kan vända uppochner på bunken utan att det rör sig.",
+  "Häll upp grädden i en mellanstor bunke. Vispa de relativ hårt. En aning hårdare en vanligt.",
+  "Blanda i philadelphiaosten och vaniljsockret med äggulorna och vispa ihop.",
+  "Häll nu över innehållet i bunken med äggulor över grädden. Vispa ihop på lägsta hastigheten.",
+  "Häll sedan över det innehållet till bunken med äggvitorna. Blande ihop med en gaffel tills det blir en slät fluffig smet.",
+  "Häll smeten i formen, smula över de resterande digistivetexen om du vill.",
+  "Ställ in i frysen över natten.",
+  "Servera och toppa med det du känner för."
+];
 
+const arrayOfObjects = Array.from(instructions, (instruction, index) => ({
+  order: index + 1,
+  text: instruction,
+}));
+
+const question8 = "8. Create an an array of objects from the instructions. Each element in the array should be an object that looks like this:";
+console.log(question8);
+console.log("{\norder: number;\ntext: instruction;\n}");
+answer("", "10 objects created:");
+console.log(arrayOfObjects);
