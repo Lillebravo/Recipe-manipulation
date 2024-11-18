@@ -67,13 +67,15 @@ const fourthIngredient = ingredientsListPaste.children[3];
 answer(question7, fourthIngredient.textContent); 
 
 // 8. 
+const instructionList = document.querySelectorAll(".instructions-list li");
+const nrOfInstructions = instructionList.length;
 const instructions = [];
-for (let i = 0; i < 10; i++) {
-  let instruction = `${i + 1}. ` + document.querySelectorAll(".instructions-list li")[i].textContent;
+
+for (let i = 0; i < nrOfInstructions; i++) {
+  let instruction = `${i + 1}. ` + instructionList[i].textContent;
   instruction = instruction.replace(/\s+/g, " ").trim();
   instructions.push(instruction);
 }
-
 const arrayOfObjects = Array.from(instructions, (instruction, index) => ({
   order: index + 1,
   text: instruction,
@@ -82,5 +84,5 @@ const arrayOfObjects = Array.from(instructions, (instruction, index) => ({
 const question8 = "8. Create an an array of objects from the instructions. Each element in the array should be an object that looks like this:";
 console.log(question8);
 console.log("{\norder: number;\ntext: instruction;\n}");
-answer("", "10 objects created:");
+answer("", `${nrOfInstructions} objects created:`);
 console.log(arrayOfObjects);
